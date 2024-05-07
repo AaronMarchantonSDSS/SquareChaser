@@ -60,10 +60,10 @@ namespace SquareChaser
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            //PlayerMovement();
-            //BallPlayerIntersections();
-            //PlayerWins();
-            //PlayerBoosterInteractions();
+            PlayerMovement();
+            BallPlayerIntersections();
+            PlayerWins();
+            PlayerBoosterInteractions();
             
 
             Refresh();
