@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Aaron Marchanton
+//May 7, 2024
+//Square Chaser Game
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,9 +57,15 @@ namespace SquareChaser
         SoundPlayer p1PointSound = new SoundPlayer(Properties.Resources.p1PointSound);
         SoundPlayer p2PointSound = new SoundPlayer(Properties.Resources.p2PointSound);
         SoundPlayer boosterSound = new SoundPlayer(Properties.Resources.boosterSound);
+
         public Form1()
         {
             InitializeComponent();
+
+            ball.X = randbp.Next(33, 451);
+            ball.Y = randbp.Next(33, 451);
+            booster.X = randbp.Next(33, 451);
+            booster.Y = randbp.Next(33, 451);
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
@@ -65,9 +75,9 @@ namespace SquareChaser
             PlayerWins();
             PlayerBoosterInteractions();
             
-
             Refresh();
         }
+
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillRectangle(blueBrush, border);
@@ -204,7 +214,7 @@ namespace SquareChaser
 
                 ball = new Rectangle(ballpoint1, ballpoint2, 14, 14);
 
-                boosterSound.Play();
+                p1PointSound.Play();
             }
 
             //player 2 scores a point
